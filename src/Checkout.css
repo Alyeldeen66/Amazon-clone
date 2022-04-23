@@ -1,0 +1,23 @@
+.checkout_ad{
+    margin-bottom: 20px;
+    height: 100px;
+    width: 800px;
+}
+.checkout_right{
+    margin-left: 50px;   
+}
+.checkout_left{
+    
+}
+.checkout{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: rgb(234,237,237);
+    height: max-content;
+}
+
+.checkout_title{
+    margin-right: 10px;
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+}

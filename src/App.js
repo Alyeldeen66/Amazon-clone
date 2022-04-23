@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Header from "./Header";
+import Home from "./Home";
+import ScrollToTop from "./ScrollToTop";
+import Checkout from "./Checkout";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Fragment, useEffect } from "react";
+import { loadProducts } from "./Api";
+import { useDispatch } from "react-redux";
+import { setProducts } from "./JS/ProductsReducer";
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadProducts(1));
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ScrollToTop />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/checkout" element={<Checkout />} />
+      </Routes>
+    </Router>
   );
 }
 
