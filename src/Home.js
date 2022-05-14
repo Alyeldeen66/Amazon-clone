@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { productsSearch } from "./JS/ProductsReducer";
 import Product from "./Product";
 import "./Home.css";
@@ -14,6 +14,7 @@ const Home = () => {
   const search = useSelector((state) => state.products.search);
   const currentPage = useSelector((state) => state.currentpage);
   const dispatch = useDispatch();
+
   return (
     <div className="home">
       <div className="home_container">
@@ -49,24 +50,36 @@ const Home = () => {
               />
             ))}
         </div>
-        <div className="home_container">
-          {/* <Button
+        {/* <div
+          style={{ marginLeft: "43%", marginTop: "30px", marginBottom: "40px" }}
+        >
+          <Button
+            style={{ backgroundColor: "#F0c14b", width: "100px" }}
             onClick={() => {
-              if (currentPage > 0) dispatch(loadProducts(currentPage - 1));
+              if (currentPage > 0) {
+                dispatch(loadProducts(currentPage - 1));
+              }
               console.log(currentPage);
             }}
           >
             prev
           </Button>
           <Button
+            style={{
+              backgroundColor: "#F0c14b",
+              marginLeft: "20px",
+              width: "100px",
+            }}
             onClick={() => {
-              dispatch(loadProducts(currentPage + 1));
+              if (currentPage < 20) {
+                dispatch(loadProducts(currentPage + 1));
+              }
               console.log(currentPage);
             }}
           >
             next
-          </Button> */}
-        </div>
+          </Button>
+        </div> */}
       </div>
     </div>
   );

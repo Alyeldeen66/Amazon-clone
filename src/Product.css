@@ -3,9 +3,9 @@
 }
 
 .product_image{
-    width: 100%;
-    height: 200px;
-   
+    height: 250px;
+    width: 90%;
+    
 }
 
 .product{
@@ -14,13 +14,23 @@
    border: 1px solid;
    margin-left: 20px;
    margin-right: 20px;
+   padding: 6% 6% 2% 6%;
    margin-top: 20px;
    border-color: #a88734 #9c7e31 #846a29;
    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
    color: #111;
+    transition-duration: 0.5s ;
+
 
 }
 
+
+
+.product:hover {
+    transform : scale(1.06);
+    z-index: 2;
+    
+}
 .product_info{
     height: 100px;
     margin-bottom: 15px;

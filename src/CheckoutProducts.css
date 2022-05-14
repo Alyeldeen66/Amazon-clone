@@ -6,6 +6,7 @@
 
 .checkoutProduct_info{
     padding-left: 20px;
+    max-width: 500px;
 }
 
 .checkoutProduct_image{
@@ -16,6 +17,7 @@
 .checkoutProduct_title{
     font-weight: bold;
     font-size: 17px;
+    
 }
 .checkoutProduct_text{
     font-weight: 600;
@@ -23,4 +25,22 @@
 
 .checkoutProduct_rating{
     display: flex;
+}
+
+.checkoutProduct_circle{
+  display: flex;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: orange ;
+  margin-left: 750px;
+  align-items: center;
+  justify-content: center;
+  
+}
+.checkoutProduct_circle_text{
+    display: flex;
+    padding-top: 10px;
+    color: white;
 }

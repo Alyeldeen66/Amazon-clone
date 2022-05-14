@@ -6,9 +6,6 @@
 .checkout_right{
     margin-left: 50px;   
 }
-.checkout_left{
-    
-}
 .checkout{
     display: grid;
     grid-template-columns: repeat(2, 1fr);

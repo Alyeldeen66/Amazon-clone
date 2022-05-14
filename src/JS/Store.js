@@ -3,19 +3,19 @@ import thunk from "redux-thunk";
 import counterReducer from "./Reducer";
 import checkoutReducer from "./CheckoutReducer";
 import productsReducer from "./ProductsReducer";
-import totalAmountReducer from "./TotalAmountReducer";
 import filteredProductsReducer from "./FilteredProductsReducer";
 import currentPageReducer from "./CurrentPageReducer";
+import loginReducer from "./LoginReducer";
 
 const store = configureStore(
   {
     reducer: {
       counter: counterReducer,
       checkout: checkoutReducer,
-      totalamount: totalAmountReducer,
       products: productsReducer,
       filteredproducts: filteredProductsReducer,
       currentpage: currentPageReducer,
+      login: loginReducer,
     },
   },
   applyMiddleware(thunk)

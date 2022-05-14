@@ -1,25 +1,34 @@
 import "./Product.css";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import { Button } from "react-bootstrap";
-import photo from "./WhatsApp Image 2022-04-11 at 3.05.39 AM.jpeg";
-import { useDispatch, useSelector } from "react-redux";
-import { increaseCount } from "./JS/Reducer";
-import { addToCheckOut } from "./JS/CheckoutReducer";
-import { addToTotalAmount, getTotalAmount } from "./JS/TotalAmountReducer";
+import { useDispatch } from "react-redux";
+import { increaseCount } from "./JS/CheckoutReducer";
+import {
+  addToCheckOut,
+  setQuantity,
+  addToTotalAmount,
+} from "./JS/CheckoutReducer";
+import { Alert } from "react-bootstrap";
 import { loadProducts } from "./Api";
+import { Rating } from "@mui/material";
 
 const Product = ({ id, img, title, text, rating, price }) => {
-  const counter = useSelector((state) => state.counter.count);
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.checkout.value);
+  const firstNum = rating.split(" ")[0];
+  const ratingNum = parseInt(firstNum, 10);
   const [count, setCount] = useState(0);
+
   const addToProducts = () => {
     if (count == 0) {
       dispatch(addToCheckOut({ id, img, title, price, rating, text }));
+      dispatch(addToTotalAmount(price));
+      dispatch(increaseCount());
     }
     for (let i = 0; i < count; i++) {
       dispatch(addToCheckOut({ id, img, title, price, rating, text }));
+      dispatch(addToTotalAmount(price));
+      dispatch(increaseCount());
     }
     setCount(0);
   };
@@ -33,21 +42,25 @@ const Product = ({ id, img, title, text, rating, price }) => {
           <small>$</small>
           <strong>{price}</strong>
         </Card.Text>
-        <Card.Text className="product_rating">
-          {Array(rating).map((_, i) => (
-            <span key={Math.random()}>⭐</span>
-          ))}
-        </Card.Text>
+        <div>
+          <Rating
+            name="half-rating-read"
+            value={ratingNum}
+            className="product_rating"
+            precision={0.5}
+            readOnly
+          />
+        </div>
         <Button
           onClick={() => {
             addToProducts();
-            dispatch(addToTotalAmount(price));
-            dispatch(increaseCount());
+            dispatch(setQuantity(id));
           }}
           style={{ backgroundColor: "#F0c14b" }}
         >
           Add To Cart
         </Button>
+
         <Card.Text style={{ paddingTop: "5px" }}>
           <Button
             onClick={() => {

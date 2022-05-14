@@ -7,17 +7,18 @@ export const loadProducts = (page) => (dispatch, getState) =>
         categoryID: "aps",
         keyword: "iphone",
         country: "US",
-        page: { page },
+        page: String(page),
       }),
     {
       headers: {
         "X-RapidAPI-Host": "amazon24.p.rapidapi.com",
-        "X-RapidAPI-Key": "e1a81ef54fmsh8bec51c6ebc04e8p15dd61jsne228d0be410e",
+        "X-RapidAPI-Key": "a8ac1ff2edmshb03d28023d16381p147731jsn2764b273dd36",
       },
     }
   )
     .then((res) => res.json())
     .then((products) => {
       console.log(products.docs);
-      // dispatch(setProducts(products.docs));
+      //dispatch(setProducts(products.docs));
+      //dispatch(setPage(page));
     });

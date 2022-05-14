@@ -1,0 +1,46 @@
+.payment_products{
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.paymentProduct_info{
+    padding-left: 20px;
+    max-width: 500px;
+}
+
+.paymentProduct_image{
+
+    width: 180px;
+    height: 170px;
+}
+.paymentProduct_title{
+    font-weight: bold;
+    font-size: 17px;
+    
+}
+.paymentProduct_text{
+    font-weight: 600;
+}
+
+.paymentProduct_rating{
+    display: flex;
+}
+.paymentProduct_circle{
+    display: flex;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: orange ;
+    margin-left: 750px;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  .paymentProduct_circle_text{
+      display: flex;
+      padding-top: 10px;
+      color: white;
+  }
+
